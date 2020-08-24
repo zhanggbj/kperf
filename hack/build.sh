@@ -36,6 +36,7 @@ go_fmt() {
 
 go_build() {
   echo "🚧 Compile"
+  go-bindata -nometadata -pkg utils -o ./pkg/command/utils/htmltemplatebindata.go templates/...
   go build -mod=mod -ldflags "$(build_flags $(basedir))" -o kperf ./cmd/...
 }
 
