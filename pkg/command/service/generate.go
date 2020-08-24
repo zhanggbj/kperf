@@ -53,7 +53,7 @@ kperf service generate —count 500 —interval 20 —batch 20 --min-scale 0 --m
 				end, _ := strconv.Atoi(r[1])
 				if start > 0 && end > 0 && start <= end {
 					for i := start; i <= end; i++ {
-						nsRangeMap[fmt.Sprintf("%s%d", nsPrefix, i)] = true
+						nsRangeMap[fmt.Sprintf("%s-%d", nsPrefix, i)] = true
 					}
 				}
 			}
@@ -138,7 +138,7 @@ kperf service generate —count 500 —interval 20 —batch 20 --min-scale 0 --m
 func createKSVC(ns string, index int) (string, string) {
 	service := servingv1.Service{
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      fmt.Sprintf("%s%d", svcPrefix, index),
+			Name:      fmt.Sprintf("%s-%d", svcPrefix, index),
 			Namespace: ns,
 		},
 	}

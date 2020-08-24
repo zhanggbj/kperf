@@ -19,6 +19,8 @@ $ ./hack/build.sh
 $ mv kperf /usr/local/bin/
 ```
 
+Note: [go-bindata](https://github.com/go-bindata/go-bindata) is required in the build process.
+
 ## User Stories
 
 ### As a Codeengine developer, I want to generate Codeengine Service concurrently for test
